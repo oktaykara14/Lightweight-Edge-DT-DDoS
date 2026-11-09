@@ -7,7 +7,7 @@ font_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aptos.ttf"
 if os.path.exists(font_path):
     fm.fontManager.addfont(font_path)
 
-output_dir = "figures"
+output_dir = os.path.dirname(os.path.abspath(__file__))
 os.makedirs(output_dir, exist_ok=True)
 
 
