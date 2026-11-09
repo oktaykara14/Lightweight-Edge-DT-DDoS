@@ -1,0 +1,10 @@
+data/raw
+archive_v1
+.git
+.idea
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.db
+.ipynb_checkpoints

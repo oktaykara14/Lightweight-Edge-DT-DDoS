@@ -1,0 +1,43 @@
+# DIGITAL TWIN DDOS DETECTION SYSTEM - CONTAINERIZED EVALUATION COMMANDS
+
+This reference file lists the container commands used to evaluate the edge-centric Digital Twin framework
+against the CICDDoS2019 attack schedule (Day 1: Nov 03, 2018; Day 2: Dec 01, 2018).
+
+--------------------------------------------------------------------------------
+1. CONTAINER STATUS & RESOURCE MONITORING
+--------------------------------------------------------------------------------
+> docker ps
+> docker stats ddos-dt-sim --no-stream
+
+--------------------------------------------------------------------------------
+2. STREAMING PCAP ATTACK SCENARIOS
+--------------------------------------------------------------------------------
+
+A) [DAY 1] NETBIOS REFLECTION (10:00 - 10:09 ADT)
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-03-11/SAT-03-11-2018_01 --limit 1000
+
+B) [DAY 1] LDAP REFLECTION (10:21 - 10:30 ADT)
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-03-11/SAT-03-11-2018_020 --limit 1000
+
+C) [DAY 1] MSSQL REFLECTION (10:33 - 10:42 ADT)
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-03-11/SAT-03-11-2018_0100 --limit 1000
+
+D) [DAY 1] UDP FLOOD (10:53 - 11:03 ADT)
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-03-11/SAT-03-11-2018_0120 --limit 1000
+
+E) [DAY 1] SYN FLOOD (11:28 - 17:35 ADT)
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-03-11/SAT-03-11-2018_0143 --limit 2000
+
+F) [DAY 2] SNMP FLOOD (12:12 - 12:23 ADT)
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-01-12_0250-0499/SAT-01-12-2018_0250 --limit 1000
+
+G) [DAY 2] BENIGN BASELINE TRAFFIC
+> docker exec -it ddos-dt-sim python src/7_pcap_evaluation.py --file data/raw/PCAP-01-12_0-0249/SAT-01-12-2018_0 --limit 500
+
+--------------------------------------------------------------------------------
+3. DIGITAL TWIN STREAM MONITORING & BENCHMARKS
+--------------------------------------------------------------------------------
+> docker exec -it ddos-dt-sim python src/5_monitoring_engine.py
+> docker exec -it ddos-dt-sim python src/8_performance_proof.py
+> docker exec -it ddos-dt-sim python src/9_ablation_experiments.py
+--------------------------------------------------------------------------------

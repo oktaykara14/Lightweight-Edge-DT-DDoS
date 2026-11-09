@@ -1,0 +1,32 @@
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE & OS Files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+~$*
+
+# Private Manuscript, Revision & Presentation Folders
+doc/
+makale/
+*.docx
+*.pdf
+*.pptx
+
+# Large Raw PCAPs & Intermediate Generated Parquet Files
+data/raw/
+*.pcap
+data/processed/train_cleaned.parquet
+data/processed/test_cleaned.parquet
+data/processed/train_pca.parquet
+

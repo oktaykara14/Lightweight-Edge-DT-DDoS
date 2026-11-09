@@ -1,0 +1,17 @@
+
+services:
+  edge-sim:
+    build: .
+    container_name: ddos-dt-sim
+    mem_limit: 2g
+    cpus: 2.0
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./figures:/app/figures
+    network_mode: host
+    privileged: true
+    command: tail -f /dev/null
